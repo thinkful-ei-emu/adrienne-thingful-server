@@ -11,11 +11,6 @@ describe('Things Endpoints', function() {
     testReviews,
   } = helpers.makeThingsFixtures();
 
-  // function makeAuthHeader(user) {
-  //   const token = Buffer.from(`${user.user_name}:${user.password}`).toString('base64');
-  //   return `Basic ${token}`;
-  // }
-
   before('make knex instance', () => {
     db = knex({
       client: 'pg',
@@ -148,7 +143,7 @@ describe('Things Endpoints', function() {
   describe('GET /api/things/:thing_id', () => {
     context('Given no things', () => {
       beforeEach(() => 
-        db.into('thingful_users').insert(testUsers)
+        helpers.seedUsers(db, testUsers)
       );
       it('responds with 404', () => {
         const thingId = 123456;
@@ -215,7 +210,7 @@ describe('Things Endpoints', function() {
   describe('GET /api/things/:thing_id/reviews', () => {
     context('Given no things', () => {
       beforeEach(() => 
-        db.into('thingful_users').insert(testUsers)
+        helpers.seedUsers(db, testUsers)
       );
 
       it('responds with 404', () => {

@@ -79,7 +79,7 @@ describe('Reviews Endpoints', function() {
             .where({ id: res.body.id })
             .first()
             .then(row => {
-              console.log(row.user_id);
+              // console.log(row.user_id);
               expect(row.text).to.eql(newReview.text);
               expect(row.rating).to.eql(newReview.rating);
               expect(row.thing_id).to.eql(newReview.thing_id);
