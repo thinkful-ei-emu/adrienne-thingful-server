@@ -168,8 +168,8 @@ describe('Things Endpoints', function() {
     });
 
     context('Given there are reviews for thing in the database', () => {
-      beforeEach('insert things', () =>
-        helpers.seedThingsTables(
+      beforeEach('insert users', () =>
+        helpers.seedUsers(
           db,
           testUsers,
           testThings,
