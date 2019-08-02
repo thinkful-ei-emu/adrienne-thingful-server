@@ -8,8 +8,7 @@ const jsonBodyParser = express.json();
 
 reviewsRouter
   .route('/')
-  .all(requireAuth)
-  .post(jsonBodyParser, (req, res, next) => {
+  .post(requireAuth, jsonBodyParser, (req, res, next) => {
     const { thing_id, rating, text } = req.body;
     const newReview = { thing_id, rating, text };
 
