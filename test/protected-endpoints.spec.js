@@ -37,11 +37,18 @@ describe('Protected endpoints', () => {
   const protectedEndpoints = [
     {
       name: 'GET /api/things/:thing_id',
-      path: '/api/things/1'
+      path: '/api/things/1',
+      method: supertest(app).get
     },
     {
       name: 'GET /api/things/:thing_id/reviews',
-      path: '/api/things/1/reviews'
+      path: '/api/things/1/reviews',
+      method: supertest(app).get
+    },
+    {
+      name: 'POST /api/reviews',
+      path: '/api/reviews',
+      method: supertest(app).post
     }
   ];
   protectedEndpoints.forEach(endpoint => {

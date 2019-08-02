@@ -43,8 +43,7 @@ async function checkThingExists(req, res, next) {
       req.app.get('db'),
       req.params.thing_id
     )
-
-    if (!thing)
+    if (!thing) 
       return res.status(404).json({
         error: `Thing does not exist`
       })

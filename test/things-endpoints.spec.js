@@ -168,8 +168,8 @@ describe('Things Endpoints', function() {
     });
 
     context('Given there are reviews for thing in the database', () => {
-      beforeEach('insert users', () =>
-        helpers.seedUsers(
+      beforeEach('insert things', () =>
+        helpers.seedThingsTables(
           db,
           testUsers,
           testThings,
@@ -178,7 +178,7 @@ describe('Things Endpoints', function() {
       );
 
       it('responds with 200 and the specified reviews', () => {
-        const thingId = 1;
+        const thingId = 2;
         const expectedReviews = helpers.makeExpectedThingReviews(
           testUsers, thingId, testReviews
         );
